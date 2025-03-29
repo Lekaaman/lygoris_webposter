@@ -1,0 +1,273 @@
+body {
+    background: #B8D0D7;
+    font-family: "Actay", sans-serif;
+    overflow-x: hidden;
+}
+
+.text {
+    color: #000000;
+    font-weight: bold;
+    font-size: 3vw;
+    padding: 1vw;
+    margin-top: 5vw;
+    position: relative;
+    white-space: nowrap;
+}
+
+.text .top {
+    display: block;
+    margin-left: 25vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text .bottom {
+    margin-left: 28vw;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#flowers {
+    position: absolute;
+    display: flex;
+    margin-left: -3vw;
+    top: 0vw;
+    gap: 45vw;
+}
+
+.flower1-img {
+    width: 40vw;
+    height: 40vw;
+    object-fit: contain;
+}
+
+.flower2-img {
+    width: 25vw;
+    height: 25vw;
+    margin-left: -5vw;
+    object-fit: contain;
+}
+
+.text2 {
+    color: #000000;
+    font-weight: bold;
+    margin-left: 45VW;
+    font-size: 3vw;
+    padding: 1vw;
+    margin-top: 2.5vw;
+    position: relative;
+    white-space: nowrap;
+}
+
+#rectangle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 5vw;
+    max-width: 20vw;
+    margin-left: 7vw;
+    margin-top: -3vw;
+    z-index: 1;
+}
+
+.rect-img {
+    width: 25vw;
+    height: 25vw;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.rect-img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+}
+
+.rect-img:active {
+    transform: scale(0.98);
+}
+
+.rect-img:nth-child(n+4) {
+    margin-top: -7vw;
+}
+
+.text3 {
+    color: #000000;
+    font-weight: bold;
+    margin-left: 35VW;
+    font-size: 3vw;
+    padding: 1vw;
+    margin-top: 2.5vw;
+    position: relative;
+    white-space: nowrap;
+}
+
+#flowersmall {
+    display: grid;
+    position: relative;
+    grid-auto-flow: column;
+    gap: 8vw;
+    margin-left: 5vw;
+    margin-top: 5vw;
+    overflow-y: auto;
+}
+
+.smallflower {
+    width: 8vw;
+    height: 8vw;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.smallflower:hover {
+    transform: scale(0.9);
+}
+
+.white-rectangle .smallflower-added {
+    position: absolute;
+    width: 10vw;
+    height: 10vw;
+    object-fit: contain;
+    cursor: grab;
+    z-index: 3;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.text4 {
+    color: #000000;
+    font-weight: bold;
+    margin-left: 45VW;
+    font-size: 3vw;
+    padding: 1vw;
+    margin-top: 3vw;
+    position: relative;
+    white-space: nowrap;
+}
+
+.text-grid {
+    display: grid;
+    margin-top: 5vw;
+    grid-template-columns: 1fr 1fr;
+    gap: 0VW;
+    font-size: 1.5vw;
+    max-width: 80VW;
+    margin: 0 auto;
+}
+
+.text-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1VW;
+    padding: 2vw;
+}
+
+.text-top, .text-bottom {
+    text-align: center;
+    line-height: 1.0;
+}
+
+.text-top {
+    font-weight: bold;
+}
+
+.text-bottom {
+    font-weight: bold;
+}
+
+.text-item {
+    cursor: pointer; /* Make the text item clickable */
+    transition: transform 0.2s ease, color 0.2s ease; /* Smooth hover effect */
+}
+
+.text-item:hover {
+    transform: scale(1.05); /* Slightly increase the size to indicate interactivity */
+    color: #007bff; /* Change text color on hover to give it a clickable feel */
+}
+
+/* Optional: Add a subtle border or underline when the text is hovered */
+.text-item:hover .text-top,
+.text-item:hover .text-bottom {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.added-text {
+    font-size: 2vw;
+    color: #000;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 3; /* Ensure text stays above the rectangle and flower */
+}
+.text5 {
+    color: #000000;
+    font-weight: bold;
+    margin-left: 35VW;
+    font-size: 3vw;
+    padding: 1vw;
+    margin-top: 3vw;
+    position: relative;
+    white-space: nowrap;
+}
+
+.white-rectangle {
+    position: relative;
+    width: 70vw;
+    height: 40vw;
+    margin: 5vw auto;
+    background: white;
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    border: 2px solid #000;
+    z-index: 2; /* Ensure it's above other elements */
+}
+
+.white-rectangle img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.white-rectangle img.visible {
+    opacity: 1;
+}
+
+.forfrom {
+    position: absolute;
+    bottom: 4vw;
+    left: 4vw;
+    font-weight: bold;
+    font-size: 3vw;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+    z-index: 10; /* Ensure it's above other elements */
+
+}
+
+.for, .from {
+    white-space: nowrap;
+}
+
+.for {
+    font-weight: bold;
+    font-size: 2.5vw;
+}
+
+.from {
+    font-weight: bold;
+    font-size: 2.5vw;
+}
