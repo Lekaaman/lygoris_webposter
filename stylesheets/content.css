@@ -16,14 +16,14 @@ body {
 
 .text .top {
     display: block;
-    margin-left: 25vw;
+    margin-left: 23vw;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .text .bottom {
-    margin-left: 28vw;
+    margin-left: 26vw;
     display: block;
     flex-direction: column;
     justify-content: center;
@@ -141,7 +141,7 @@ body {
 .text4 {
     color: #000000;
     font-weight: bold;
-    margin-left: 45VW;
+    margin-left: 44VW;
     font-size: 3vw;
     padding: 1vw;
     margin-top: 3vw;
@@ -205,7 +205,7 @@ body {
 .text5 {
     color: #000000;
     font-weight: bold;
-    margin-left: 35VW;
+    margin-left: 36VW;
     font-size: 3vw;
     padding: 1vw;
     margin-top: 3vw;
