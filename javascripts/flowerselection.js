@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const whiteRectangle = document.querySelector(".white-rectangle");
 
@@ -80,5 +79,68 @@ document.addEventListener("DOMContentLoaded", function () {
             // Store reference to the new text
             currentText = newText;
         });
+    });
+
+    // Signature Canvas Logic
+    const canvas = document.getElementById('drawCanvas');
+    const ctx = canvas.getContext('2d');
+    const customCursor = document.getElementById('customCursor');
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Set the stroke style to red (for signature-like effect)
+    ctx.strokeStyle = '#00000';  // Red color for the signature
+    ctx.lineWidth = 2;  // Set the thickness of the line
+    ctx.lineJoin = 'round';  // Rounded line joins
+    ctx.lineCap = 'round';  // Rounded line ends
+
+    // Show custom cursor and handle mouse movements
+    canvas.addEventListener('mousemove', function (e) {
+        const rect = canvas.getBoundingClientRect(); 
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top;
+
+        customCursor.style.display = 'block';
+        customCursor.style.left = `${e.clientX}px`; 
+        customCursor.style.top = `${e.clientY}px`;
+    });
+
+    // Hide the custom cursor when the mouse leaves the canvas
+    canvas.addEventListener('mouseleave', function () {
+        customCursor.style.display = 'none';
+    });
+
+    // Start drawing when mouse button is pressed
+    canvas.addEventListener('mousedown', function (e) {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY]; 
+    });
+
+    // Draw on canvas while mouse is moving and drawing is active
+    canvas.addEventListener('mousemove', function (e) {
+        if (isDrawing) {
+            const x = e.offsetX;
+            const y = e.offsetY;
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.closePath();
+
+            [lastX, lastY] = [x, y];
+        }
+    });
+
+    // Stop drawing when mouse button is released
+    canvas.addEventListener('mouseup', function () {
+        isDrawing = false;
+    });
+
+    // Also stop drawing if the mouse leaves the canvas
+    canvas.addEventListener('mouseleave', function () {
+        isDrawing = false;
     });
 });
